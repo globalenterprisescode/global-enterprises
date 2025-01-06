@@ -27,7 +27,7 @@ const PropertyCard = ({ property, type }: PropertyCardProps) => {
   const handleLeadSubmit = () => {
     setShowLeadForm(false);
     sessionStorage.setItem('formSubmitted', 'true');
-    router.push(`/property/${property.id}`);
+    router.push(`/property/${property.id}?type=${type}`);
   };
 
   const handlePropertyClick = () => {
