@@ -1,6 +1,8 @@
 import type { StaticImageData } from 'next/image';
 import purvaImage from '../purvavajrahalli.png';
 import brigadeImage from '../Brigadesilvercrest.png';
+import courtyardLogo from '../courtyard-logo.png';
+import courtyardHero from '../vedant-suraksha-courtyard.jpg';
 
 export interface LandingProject {
   slug: string;
@@ -10,6 +12,10 @@ export interface LandingProject {
   location: string;
   price: string;
   heroImage: StaticImageData;
+  logoImage?: StaticImageData;
+  contactPhone?: string;
+  contactEmail?: string;
+  whatsappPhone?: string;
   accent: 'gold' | 'rose';
   highlights: { label: string; value: string }[];
   story: string[];
@@ -96,5 +102,51 @@ export const landingProjects: Record<string, LandingProject> = {
       { question: 'Can I receive floor plans?', answer: 'At the current EOI stage, floor plans are presented through the project sales team rather than publicly distributed.' },
     ],
     disclaimer: 'Project details, pricing, EOI amounts, inventory, RERA status and launch terms are based on the current sales briefing and are subject to change. EOI does not constitute allotment or confirmation of a specific unit.',
+  },
+  'vedant-suraksha-courtyard': {
+    slug: 'vedant-suraksha-courtyard',
+    name: 'Vedant Suraksha Courtyard',
+    eyebrow: 'Gottigere, off Bannerghatta Road',
+    tagline: 'Bengaluru’s first guitar-themed courtyard, designed with emotion.',
+    location: 'Gottigere, South Bengaluru',
+    price: '₹9,999 / sq.ft. onwards',
+    heroImage: courtyardHero,
+    logoImage: courtyardLogo,
+    contactPhone: '9845008380',
+    contactEmail: 'theglobalenterprises@gmail.com',
+    whatsappPhone: '919845008380',
+    accent: 'gold',
+    highlights: [
+      { label: 'Land parcel', value: '4.5 acres' },
+      { label: 'Residences', value: '278 homes' },
+      { label: 'Open space', value: '82%' },
+      { label: 'Clubhouse', value: '25,000 sq.ft.' },
+    ],
+    story: [
+      'Vedant Suraksha Courtyard is a music-inspired residential address where art, architecture and emotion come together.',
+      'Spread across 4.5 acres, the project brings 278 thoughtfully designed 3 and 4 BHK homes, a 70,000 sq.ft. guitar-shaped courtyard and Club Élan, a three-level clubhouse created around the rhythm of everyday life.',
+    ],
+    configurations: [
+      { name: '3 BHK Type 1', size: '1,760 sq.ft.', price: '₹9,999 / sq.ft. onwards' },
+      { name: '3 BHK Type 2', size: '1,745 sq.ft.', price: '₹9,999 / sq.ft. onwards' },
+      { name: '3 BHK Type 3', size: '1,782 sq.ft.', price: '₹9,999 / sq.ft. onwards' },
+      { name: '4 BHK Type 1', size: '2,674 sq.ft.', price: '₹9,999 / sq.ft. onwards' },
+      { name: '4 BHK Type 2', size: '2,485 sq.ft.', price: '₹9,999 / sq.ft. onwards' },
+    ],
+    amenities: [
+      { title: 'Guitar-shaped courtyard', description: 'A 70,000 sq.ft. central outdoor realm designed around rhythm, movement and community.' },
+      { title: 'Club Élan', description: 'A three-level, 25,000 sq.ft. clubhouse with fitness, wellness, recreation and social spaces.' },
+      { title: 'Everyday harmony', description: 'Swimming pool, badminton, squash, gym, yoga deck, library, co-working and more.' },
+    ],
+    faq: [
+      { question: 'Where is Vedant Suraksha Courtyard located?', answer: 'Vedant Suraksha Courtyard is located in Gottigere, off Bannerghatta Road in South Bengaluru.' },
+      { question: 'What configurations are available?', answer: 'The project offers 3 BHK and 4 BHK residences in multiple floor-plan types.' },
+      { question: 'What is the starting price?', answer: 'Pricing starts at approximately ₹9,999 per sq.ft., subject to availability and applicable charges.' },
+      { question: 'How many residences are there?', answer: 'The project has 278 residences across three towers with 82% open space.' },
+      { question: 'What is the possession timeline?', answer: 'The official project website states that completion and handover are planned for December 2029.' },
+      { question: 'What makes the project unique?', answer: 'The project features a 70,000 sq.ft. guitar-shaped courtyard, zero common walls and 100% East and North-facing homes, according to the project website.' },
+      { question: 'What is the RERA number?', answer: 'The project RERA number listed on the official website is ACK/KA/RERA/1251/310/PR/011225/009820.' },
+    ],
+    disclaimer: 'Pricing, availability, specifications, possession timelines and location claims are indicative and subject to change. Please verify the latest terms with the authorised project representative. RERA details are reproduced from the official project website.',
   },
 };
