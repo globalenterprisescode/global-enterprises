@@ -13,6 +13,9 @@ export default function LandingPageTemplate({ project }: LandingPageTemplateProp
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const isRose = project.accent === 'rose';
   const accent = isRose ? '#e5a38b' : '#d4aa63';
+  const contactPhone = project.contactPhone ?? '9844222500';
+  const whatsappPhone = project.whatsappPhone ?? '919844222500';
+  const contactEmail = project.contactEmail ?? 'theglobalenterprises@gmail.com';
   const whatsappMessage = encodeURIComponent(`Hi, I am interested in ${project.name}. Please share the latest price, configuration and availability details.`);
 
   return (
@@ -21,6 +24,7 @@ export default function LandingPageTemplate({ project }: LandingPageTemplateProp
         <Image src={project.heroImage} alt={`${project.name} project overview`} fill priority className="object-cover object-center opacity-70" sizes="100vw" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,18,13,.94)_0%,rgba(9,18,13,.72)_44%,rgba(9,18,13,.18)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(9,18,13,.9),transparent_45%)]" />
+        {project.logoImage && <div className="absolute left-5 top-6 z-10 sm:left-8 lg:left-12"><Image src={project.logoImage} alt={`${project.name} logo`} width={150} height={72} className="h-auto w-32 object-contain sm:w-40" priority /></div>}
         <div className="relative mx-auto flex min-h-[88vh] max-w-7xl items-end px-5 pb-16 pt-24 sm:px-8 lg:px-12 lg:pb-24">
           <div className="max-w-2xl">
             <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accent }}>{project.eyebrow}</p>
@@ -45,8 +49,8 @@ export default function LandingPageTemplate({ project }: LandingPageTemplateProp
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-xs font-bold uppercase tracking-[0.25em]" style={{ color: isRose ? '#a25d4a' : '#9b6d27' }}>Questions, answered</p><h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Make your next move with clarity.</h2></div><div className="divide-y divide-[#172019]/15 border-y border-[#172019]/15">{project.faq.map((item, index) => <div key={item.question}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="flex w-full items-center justify-between gap-6 py-5 text-left text-base font-semibold"><span>{item.question}</span><span className="text-2xl font-light" style={{ color: accent }}>{openFaq === index ? '−' : '+'}</span></button>{openFaq === index && <p className="max-w-2xl pb-5 pr-10 text-sm leading-6 text-[#172019]/60">{item.answer}</p>}</div>)}</div></div></section>
 
       <LandingEnquiryForm project={project} />
-      <footer className="bg-[#0a100d] px-5 py-8 text-center text-xs leading-6 text-white/40 sm:px-8"><p>{project.disclaimer}</p><p className="mt-2">© {new Date().getFullYear()} Global Enterprises. Project information is for enquiry purposes only.</p></footer>
-      <div className="fixed inset-x-4 bottom-4 z-20 flex gap-2 sm:inset-x-auto sm:bottom-6 sm:right-6"><a href={`tel:9844222500`} className="rounded-full bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#172019] shadow-xl">Call expert</a><a href={`https://wa.me/919844222500?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="rounded-full px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#101713] shadow-xl" style={{ backgroundColor: accent }}>WhatsApp</a></div>
+      <footer className="bg-[#0a100d] px-5 py-8 text-center text-xs leading-6 text-white/40 sm:px-8"><p>{project.disclaimer}</p><p className="mt-3"><a href={`tel:${contactPhone}`} className="hover:text-white">{contactPhone}</a><span className="mx-2">·</span><a href={`mailto:${contactEmail}`} className="hover:text-white">{contactEmail}</a></p><p className="mt-2">© {new Date().getFullYear()} Global Enterprises. Project information is for enquiry purposes only.</p></footer>
+      <div className="fixed inset-x-4 bottom-4 z-20 flex gap-2 sm:inset-x-auto sm:bottom-6 sm:right-6"><a href={`tel:${contactPhone}`} className="rounded-full bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#172019] shadow-xl">Call expert</a><a href={`https://wa.me/${whatsappPhone}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="rounded-full px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#101713] shadow-xl" style={{ backgroundColor: accent }}>WhatsApp</a></div>
     </main>
   );
 }
